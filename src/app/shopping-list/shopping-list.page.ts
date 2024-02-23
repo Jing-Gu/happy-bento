@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss'],
+  selector: 'app-shopping-list',
+  templateUrl: 'shopping-list.page.html',
   standalone: true,
   imports: [IonHeader, IonToolbar, IonTitle, IonContent],
 })
-export class Tab1Page {
+export class ShoppingListPage {
   constructor() {}
 }

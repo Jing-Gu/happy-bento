@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/recipes"></ion-back-button>
+    </ion-buttons>
+    <ion-button slot="end" (click)="saveRecipe()" [disabled]="!newRecipeForm.valid">
+      Save
+      <ion-icon slot="end" name="checkmark-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="newRecipeForm"  class="p-8 flex flex-col gap-6">
+    <div class="relative overflow-hidden border-2 border-dashed border-blue-500 rounded-xl mb-6">
+      @if(!preview) {
+        <div class="p-8">
+          <input class="absolute right-0 top-0 w-full h-full opacity-0 cursor-pointer" type="file" id="fileInput"
+            (change)="onFileSelected($event)" accept="image/*" />
+          <ion-icon name="cloud-upload-outline" color="primary" class="block w-12 h-12 mx-auto"></ion-icon>
+          <label class="inline-block w-full mt-4 text-blue-500 text-center" for="fileInput">Upload a photo</label>
+        </div>
+      } @else {
+        <input class="absolute right-0 top-0 w-full h-full opacity-0 cursor-pointer" type="file" id="fileInput"
+          (change)="onFileSelected($event)" accept="image/*" />
+        <img [src]="preview" class="h-auto w-full"/>
+      }
+    </div>
+    <ion-input label="Recipe name" fill="outline" label-placement="stacked" formControlName="title"></ion-input>
+
+    <div class="flex-1 gap-6" formArrayName="ingredients">
+      <div *ngFor="let ingredientGroup of ingredientsArray.controls; let i = index" [formGroupName]="i">
+        <div class="flex gap-2 items-end mb-2">
+          <ion-input label="Ingredient" fill="outline" label-placement="stacked"
+            formControlName="name"></ion-input>
+
+
+          @if (ingredientsArray.controls.length > 1) {
+          <ion-button fill="clear" size="large" color="danger" (click)="removeIngredient(i)">
+            <ion-icon name="trash" slot="icon-only"></ion-icon>
+          </ion-button>
+          }
+        </div>
+      </div>
+      <div class="flex items-center mt-4">
+        <ion-button  (click)="addIngredient()">
+          Add more ingredients
+        </ion-button>
+      </div>
+    </div>
+    <ion-textarea label="Memo" fill="outline" label-placement="stacked" placeholder="quick memo"
+      [counter]="true" maxlength="50" [autoGrow]="true"
+      formControlName="memo"></ion-textarea>
+  </form>
+
+</ion-content>

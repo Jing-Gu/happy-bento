@@ -1,0 +1,39 @@
+[
+{
+  "id": 1,
+	"title": "chicken fajitas",
+	"ingredients": [
+		"chicken breast",
+		"bell pepper",
+		"onions",
+		"tortillas",
+		"parsley"
+	],
+	"memo": "one-pot wonder",
+	"img": "assets/images/fajitas.png"
+},
+{
+  "id": 2,
+	"title": "potato salad",
+	"ingredients": [
+		"potatoes",
+		"carrots",
+		"peas",
+		"mayonnaise",
+		"parsley"
+	],
+	"memo": "keep in fridge overnight",
+	"img": "assets/images/potato-salad.png"
+},
+{
+  "id": 3,
+	"title": "tuna wrap",
+	"ingredients": [
+		"baby spinach",
+		"can tuna",
+		"tortillas"
+	],
+	"memo": "quick lunch",
+	"img": "assets/images/tuna-wrap.png"
+}
+]

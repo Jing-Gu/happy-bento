@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/recipes"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-button slot="end">
+      Save
+      <ion-icon slot="end" name="checkmark-circle-outline"></ion-icon>
+    </ion-button> -->
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  @if(recipe$ | async; as recipe) {
+    <img [src]="recipe.img">
+    <p>{{recipe.title}}</p>
+  }
+</ion-content>
